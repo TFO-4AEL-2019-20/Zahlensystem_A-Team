@@ -10,7 +10,8 @@ namespace ZahlensystemATeam
         static void Main(string[] args)
         {
             // des sich a kommentar
-
+            //Einlesen Binärzahl
+            string binärzahl = Convert.ToString(Console.ReadLine());
         }
     }
 }
