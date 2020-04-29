@@ -7,19 +7,10 @@ namespace MinirechnerTFO_KarasaniDaniel
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
-
-            // des sich a kommentar
-            //Einlesen Binärzahl
-            string binärzahl = Convert.ToString(Console.ReadLine());
-
-
-
-            
-            Console.WriteLine(HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
-            Console.ReadKey();  // Um Ausgabe zu überprüfen
-
 
 
             Console.BackgroundColor = ConsoleColor.White;
@@ -30,10 +21,8 @@ namespace MinirechnerTFO_KarasaniDaniel
 
             while (Wiederholen/* == true*/)
             {
-                Console.WriteLine("\n\n \tA)  Addieren");
-                Console.WriteLine("\tB)  Subtrahieren");
-                Console.WriteLine("\tC)  Multiplizieren");
-                Console.WriteLine("\tD)  Dividieren");
+                Console.WriteLine("\n\n \tA)  Zu Dezimal");
+                Console.WriteLine("\tB)  Zu Hexadezimal");
                 Console.WriteLine("\tZ)  Beenden >> Fenster schließen");
 
                 System.Console.Write("\nTippen Sie den Buchstaben der gewünschten Aufgabe ein und betätigen Sie die Enter-Taste: ");
@@ -41,26 +30,21 @@ namespace MinirechnerTFO_KarasaniDaniel
                 string Aufgabe;
 
                 Aufgabe = Console.ReadLine();
-                //foreach (char value in Aufgabe.ToCharArray()) 
+                //foreach (char value in Aufgabe.ToCharArray())
                 // Array speichert mehrere Variabeln
+
                 switch (Aufgabe)
                 {
 
                     case "A":
                     case "a":
-                    case "1": /* Hab es auch mit 1, 2 usw. programmiert, dass es die dementsprechenden Übungen ausführt,
-                                  da ich es auch mit Zahlen verwenden möchte 
-                                   HINWEIS: Somit wenn man 12 z.b. eingibt, dann wird die 1. und 2. Übung nacheinander ausgeführt, obwohl die Warnung angegeben wird- Müsste ich noch optimieren!
-                                   
-                                   */
+                    case "1":
                         {
-                            Console.Write("\n1.Zahl: ");
-                            int Zahl1 = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("2.Zahl: ");
-                            int Zahl2 = Convert.ToInt32(Console.ReadLine());
+                            //Einlesen Binärzahl
+                            string binärzahl = Convert.ToString(Console.ReadLine());
 
-                            System.Threading.Thread.Sleep(350);
-                            Console.WriteLine("Summe: " + Addiere(Zahl1, Zahl2));
+                            int ErgebnisDEZ = DezimalUmrechnen(binärzahl);
+                            Console.WriteLine(ErgebnisDEZ);
 
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
@@ -75,14 +59,12 @@ namespace MinirechnerTFO_KarasaniDaniel
                     case "b":
                     case "2":
                         {
-                            Console.Write("\n1.Zahl: ");
-                            int Zahl1 = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("2.Zahl: ");
-                            int Zahl2 = Convert.ToInt32(Console.ReadLine());
 
-                            System.Threading.Thread.Sleep(350);
+                            //Einlesen Binärzahl
+                            string binärzahl = Convert.ToString(Console.ReadLine());
 
-                            Console.WriteLine("Differenz: " + Subtrahiere(Zahl1, Zahl2));
+                            Console.WriteLine(HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
+                            Console.ReadKey();  // Um Ausgabe zu überprüfen
 
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
@@ -92,47 +74,6 @@ namespace MinirechnerTFO_KarasaniDaniel
                             break;
                         }
 
-                    case "C":
-                    case "c":
-                    case "3":
-                        {
-                            Console.Write("\n1.Zahl: ");
-                            int Zahl1 = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("2.Zahl: ");
-                            int Zahl2 = Convert.ToInt32(Console.ReadLine());
-
-                            System.Threading.Thread.Sleep(350);
-
-                            Console.WriteLine("Produkt: " + Multipliziere(Zahl1, Zahl2));
-
-                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                            System.Console.WriteLine("Wenn Sie das Programm schließen möchten, dann drücken Sie die Taste Z, ansonsten eine beliebige Taste um die Console zu leeren");
-                            Console.ReadKey();
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            break;
-                        }
-
-                    case "D":
-                    case "d":
-                    case "4":
-                        {
-                            Console.Write("\n1.Zahl: ");
-                            int Zahl1 = Convert.ToInt32(Console.ReadLine());
-                            Console.Write("2.Zahl: ");
-                            int Zahl2 = Convert.ToInt32(Console.ReadLine());
-
-                            System.Threading.Thread.Sleep(350);
-
-                            Console.WriteLine("Quotient: " + Dividiere(Zahl1, Zahl2));
-
-                            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                            Beendentext();
-                            Console.ReadKey();
-                            Console.Clear();
-                            Console.ForegroundColor = ConsoleColor.Black;
-                            break;
-                        }
 
                     case "Z":
                     case "z":
@@ -164,47 +105,44 @@ namespace MinirechnerTFO_KarasaniDaniel
 
         }
 
-        static int Addiere(int Zahl1, int Zahl2)
-        {
-            return (Zahl1 + Zahl2);
-        }
-
-        static int Subtrahiere(int Zahl1, int Zahl2)
-        {
-            return (Zahl1 - Zahl2);
-        }
-
-        static int Multipliziere(int Zahl1, int Zahl2)
-        {
-            return (Zahl1 * Zahl2);
-
-            
-
-        }
-
-        static int Dividiere(int Zahl1, int Zahl2)
-        {
-            return (Zahl1 / Zahl2);
-        }
-
         static void Beendentext()
         {
             System.Console.WriteLine("Drücken Sie eine beliebige Taste um die Konsole zu leeren");
         }
 
-        public static string HexadezimalUmrechnung(string Eingabe_Binaer)   // Methode
-        {
-            string StringHex = Convert.ToInt32(Eingabe_Binaer, 2).ToString("X");
-            return StringHex;
-        }
-            
-        }
         /// <summary>
         /// Umrechnung von Binär zu Hexadezimal
         /// </summary>
         /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
         /// <returns></returns>
-        
+        public static string HexadezimalUmrechnung(string Eingabe_Binaer)   // Methode
+        {
+            string StringHex = Convert.ToInt32(Eingabe_Binaer, 2).ToString("X");
+            return StringHex;
+        }
 
+        /// <summary>
+        /// Umrechnung von Binär zu Dezimal
+        /// </summary>
+        /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
+        /// <returns></returns>
+
+
+        static int DezimalUmrechnen(string Bin)
+        {
+
+            string Dezimal = Convert.ToInt32(Bin, 2).ToString();
+
+            int Dezimalzahl = Convert.ToInt32(Dezimal);
+
+            return Dezimalzahl;
+        }
 
     }
+
+
+
+
+
+
+}
