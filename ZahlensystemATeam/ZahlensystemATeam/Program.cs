@@ -9,7 +9,14 @@ namespace MinirechnerTFO_KarasaniDaniel
     {
         static void Main(string[] args)
         {
-<<<<<<< HEAD
+
+
+            string Eingabe_Binaer = "00001111"; // Eingabezahl...
+            Console.WriteLine(HexadezimalUmrechnung(Eingabe_Binaer)); // Schreibt dann das Ergebnis der Methode raus
+            Console.ReadKey();  // Um Ausgabe zu überprüfen
+
+
+
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
@@ -177,22 +184,19 @@ namespace MinirechnerTFO_KarasaniDaniel
             System.Console.WriteLine("Drücken Sie eine beliebige Taste um die Konsole zu leeren");
         }
 
-=======
-            string Eingabe_Binaer = "00001111"; // Eingabezahl...
-            Console.WriteLine(HexadezimalUmrechnung(Eingabe_Binaer)); // Schreibt dann das Ergebnis der Methode raus
-            Console.ReadKey();  // Um Ausgabe zu überprüfen
+        public static string HexadezimalUmrechnung(string Eingabe_Binaer)   // Methode
+        {
+            string StringHex = Convert.ToInt32(Eingabe_Binaer, 2).ToString("X");
+            return StringHex;
+        }
+            
         }
         /// <summary>
         /// Umrechnung von Binär zu Hexadezimal
         /// </summary>
         /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
         /// <returns></returns>
-        public static string HexadezimalUmrechnung(string Eingabe_Binaer)   // Methode
-        {
-            string StringHex = Convert.ToInt32(Eingabe_Binaer, 2).ToString("X");
-            return StringHex;
-        }
+        
 
->>>>>>> ec631bdab3376f0667bef22ee14d12ebf6a70db3
+
     }
-}
