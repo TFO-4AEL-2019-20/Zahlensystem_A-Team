@@ -10,10 +10,14 @@ namespace MinirechnerTFO_KarasaniDaniel
         static void Main(string[] args)
         {
 
+            // des sich a kommentar
+            //Einlesen Binärzahl
+            string binärzahl = Convert.ToString(Console.ReadLine());
 
 
-            string Eingabe_Binaer = "00001111"; // Eingabezahl...
-            Console.WriteLine(HexadezimalUmrechnung(Eingabe_Binaer)); // Schreibt dann das Ergebnis der Methode raus
+
+            
+            Console.WriteLine(HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
             Console.ReadKey();  // Um Ausgabe zu überprüfen
 
 
@@ -174,9 +178,7 @@ namespace MinirechnerTFO_KarasaniDaniel
         {
             return (Zahl1 * Zahl2);
 
-            // des sich a kommentar
-            //Einlesen Binärzahl
-            string binärzahl = Convert.ToString(Console.ReadLine());
+            
 
         }
 
