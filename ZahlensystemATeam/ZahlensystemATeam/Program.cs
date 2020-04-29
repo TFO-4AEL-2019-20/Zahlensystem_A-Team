@@ -3,16 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace MinirechnerTFO_KarasaniDaniel
+namespace Zahlensysteme_umwandler
 {
     class Program
     {
-
-
         static void Main(string[] args)
         {
-
-
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
             Console.Clear();
@@ -41,10 +37,11 @@ namespace MinirechnerTFO_KarasaniDaniel
                     case "1":
                         {
                             //Einlesen Binärzahl
+                            Console.Write("Eingabe Binärzahl:\t ");
                             string binärzahl = Convert.ToString(Console.ReadLine());
 
                             int ErgebnisDEZ = DezimalUmrechnen(binärzahl);
-                            Console.WriteLine(ErgebnisDEZ);
+                            Console.WriteLine("Ausgabe Dezimalzahl:\t " + ErgebnisDEZ);
 
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
@@ -61,11 +58,10 @@ namespace MinirechnerTFO_KarasaniDaniel
                         {
 
                             //Einlesen Binärzahl
+                            Console.Write("Eingabe Binärzahl:\t ");
                             string binärzahl = Convert.ToString(Console.ReadLine());
 
-                            Console.WriteLine(HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
-                            Console.ReadKey();  // Um Ausgabe zu überprüfen
-
+                            Console.WriteLine("Ausgabe Hexadezimal:\t "+HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
                             Console.ReadKey();
@@ -91,7 +87,7 @@ namespace MinirechnerTFO_KarasaniDaniel
                     default:
                         {
                             Console.ForegroundColor = ConsoleColor.Red;
-                            Console.WriteLine("Error# Fehler °*°  - Bitte geben Sie eine gültige und vorhandene Rechnungsart ein! \nWeitere Rechnungsarten sind am Entwickeln...\n");
+                            Console.WriteLine("#Error Fehler# - Bitte geben Sie eine gültige/vorhandene Umrechnung ein! \nWeitere Umrechnungen sind am Entwickeln...\n");
                             Console.ForegroundColor = ConsoleColor.Black;
                             System.Threading.Thread.Sleep(750);
                             Beendentext();
@@ -126,11 +122,8 @@ namespace MinirechnerTFO_KarasaniDaniel
         /// </summary>
         /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
         /// <returns></returns>
-
-
         static int DezimalUmrechnen(string Bin)
         {
-
             string Dezimal = Convert.ToInt32(Bin, 2).ToString();
 
             int Dezimalzahl = Convert.ToInt32(Dezimal);
@@ -140,9 +133,8 @@ namespace MinirechnerTFO_KarasaniDaniel
 
     }
 
-
-
-
-
+    /// Nächste Verbesserungen:
+    /// - effizientere Binäreingabe
+    /// - Zentrierung der Texte (passend zum Konsolenfenster)
 
 }
