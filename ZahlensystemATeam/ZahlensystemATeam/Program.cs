@@ -24,7 +24,6 @@ namespace Zahlensysteme_umwandler
                 System.Console.Write("\nTippen Sie den Buchstaben der gewünschten Aufgabe ein und betätigen Sie die Enter-Taste: ");
 
                 string Aufgabe;
-
                 Aufgabe = Console.ReadLine();
                 //foreach (char value in Aufgabe.ToCharArray())
                 // Array speichert mehrere Variabeln
@@ -38,10 +37,10 @@ namespace Zahlensysteme_umwandler
                         {
                             //Einlesen Binärzahl
                             Console.Write("Eingabe Binärzahl:\t ");
-                            string binärzahl = Convert.ToString(Console.ReadLine());
+                            string binaerzahl = Convert.ToString(Console.ReadLine());
 
-                            int ErgebnisDEZ = DezimalUmrechnen(binärzahl);
-                            Console.WriteLine("Ausgabe Dezimalzahl:\t " + ErgebnisDEZ);
+                            
+                            Console.WriteLine("Ausgabe Dezimalzahl:\t " + Convert.ToInt32(DezimalUmrechnen(binaerzahl)));
 
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
@@ -59,9 +58,9 @@ namespace Zahlensysteme_umwandler
 
                             //Einlesen Binärzahl
                             Console.Write("Eingabe Binärzahl:\t ");
-                            string binärzahl = Convert.ToString(Console.ReadLine());
+                            string binaerzahl = Convert.ToString(Console.ReadLine());
 
-                            Console.WriteLine("Ausgabe Hexadezimal:\t "+HexadezimalUmrechnung(binärzahl)); // Schreibt dann das Ergebnis der Methode raus
+                            Console.WriteLine("Ausgabe Hexadezimal:\t "+HexadezimalUmrechnen(binaerzahl)); // Schreibt dann das Ergebnis der Methode raus
                             Console.ForegroundColor = ConsoleColor.DarkMagenta;
                             Beendentext();
                             Console.ReadKey();
@@ -111,7 +110,7 @@ namespace Zahlensysteme_umwandler
         /// </summary>
         /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
         /// <returns></returns>
-        public static string HexadezimalUmrechnung(string Eingabe_Binaer)   // Methode
+        public static string HexadezimalUmrechnen(string Eingabe_Binaer)   // Methode
         {
             string StringHex = Convert.ToInt32(Eingabe_Binaer, 2).ToString("X");
             return StringHex;
@@ -122,13 +121,12 @@ namespace Zahlensysteme_umwandler
         /// </summary>
         /// <param name="Eingabe_Binaer"> Eingegebene Binärzahl</param>
         /// <returns></returns>
-        static int DezimalUmrechnen(string Bin)
+        static string DezimalUmrechnen(string Bin)
         {
             string Dezimal = Convert.ToInt32(Bin, 2).ToString();
 
-            int Dezimalzahl = Convert.ToInt32(Dezimal);
-
-            return Dezimalzahl;
+            
+            return Dezimal;
         }
 
     }
@@ -136,5 +134,8 @@ namespace Zahlensysteme_umwandler
     /// Nächste Verbesserungen:
     /// - effizientere Binäreingabe
     /// - Zentrierung der Texte (passend zum Konsolenfenster)
+    /// - Nur die Annahme der ersten 8 Zeichen (Binärformat...)
+    /// - Eigene Methode für die Binäreingabe
+    /// - 8 Zeichen Unterlinien, sodass der Benutzer visuell erkennt ob er 8 Ziffern schon eingegeben hat
 
 }
